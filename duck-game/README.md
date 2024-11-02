@@ -1,50 +1,90 @@
-# React + TypeScript + Vite
+<div name="readme-top"></div>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<!-- Logo -->
+<div align="center">
+  <h1><b>DuckGame</b></h1>
+  <br/>
 
-Currently, two official plugins are available:
+  <h3><b>游戏分享网站</b></h3>
+</div>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+<!-- 项目描述 -->
 
-## Expanding the ESLint configuration
+# 📖 DuckGame <a name="about-project"></a>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+> 一个高性能的模块化游戏分享平台，采用现代化的设计理念，提供美观的用户界面和流畅的用户体验。
 
-- Configure the top-level `parserOptions` property like this:
+## ✨ 主要特性 <a name="features"></a>
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- 🚀 高性能模块化架构
+- 💎 现代化UI设计
+- 🎨 美观的用户界面
+- 📱 响应式设计
+- ⚡ 快速加载和渲染
+
+## 🛠 技术栈 <a name="built-with"></a>
+
+### 技术栈 <a name="tech-stack"></a>
+
+<details>
+  <summary>前端</summary>
+  <ul>
+    <li><a href="https://react.dev/">React</a></li>
+    <li><a href="https://vitejs.dev/">Vite</a></li>
+    <li><a href="https://ui.shadcn.com/">shadcn/ui</a></li>
+  </ul>
+</details>
+
+<!-- 截图 -->
+
+## 📸 项目截图 <a name="screenshots"></a>
+
+> 即将添加
+
+<p align="right">(<a href="#readme-top">返回顶部</a>)</p>
+
+<!-- 快速开始 -->
+
+## 💻 快速开始 <a name="getting-started"></a>
+
+### 前置要求
+
+- Node.js
+- pnpm
+
+### 安装依赖
+
+```sh
+pnpm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 开发环境运行
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```sh
+pnpm dev
 ```
+
+### 构建项目
+
+```sh
+pnpm build
+```
+
+<p align="right">(<a href="#readme-top">返回顶部</a>)</p>
+
+<!-- 贡献 -->
+
+## 🤝 贡献 <a name="contributing"></a>
+
+- 发现问题请先在 `issue` 中提问
+- 欢迎提交 Pull Request 来改进项目
+
+<p align="right">(<a href="#readme-top">返回顶部</a>)</p>
+
+<!-- 许可证 -->
+
+## 📝 许可证 <a name="license"></a>
+
+本项目基于MIT许可证开源，请遵守MIT许可证协议
+
+<p align="right">(<a href="#readme-top">返回顶部</a>)</p>
