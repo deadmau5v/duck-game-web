@@ -6,9 +6,23 @@ import Notice from './components/ui/公告'
 import Search from './pages/search'
 import GameRecommendations from './components/ui/游戏推荐'
 import bg from "@/assets/bg.jpg";
+import gamelogo from "@/assets/game.jpg"
 import { Button } from './components/ui/button'
+import GameCardList from './components/ui/游戏卡片列表'
+import UpdateGameList from './components/ui/最近更新列表'
 
 function App() {
+
+  const test = {
+    title: '幻兽帕鲁',
+    imageUrl: gamelogo,
+    likes: 100,
+    views: 1000,
+    comments: 100,
+    date: new Date().toLocaleDateString(),
+    types: ['角色扮演', '冒险'],
+  }
+  const games = [test, test, test, test, test, test]
 
   return (
     <>
@@ -68,10 +82,13 @@ function App() {
 
           {/* 游戏展示 */}
         <div style={{
-          height: '100rem',
-        }} className='px-40'>
+          maxWidth: '1200px',
+          margin: '0 auto',
+        }} className='px-10 py-5'>
+          <GameCardList games={games} />
+          <UpdateGameList games={games} />
         </div>
-        
+
       </div>
     </>
   )
