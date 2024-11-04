@@ -6,5 +6,8 @@ import (
 
 func Setup(app *gin.Engine) {
 	route := app.Group("/game")
-	route.GET("/list", List)
+	route.POST("/game", Add)
+	route.GET("/game", List)
+	route.DELETE("/game", Delete)
+	route.PUT("/game", Update)
 }

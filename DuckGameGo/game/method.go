@@ -7,7 +7,7 @@ import (
 )
 
 func List(ctx *gin.Context) {
-	games := []datasource.Game{}
+	var games []datasource.Game
 	datasource.DB.Find(&games)
 
 	ctx.JSON(200, gin.H{
@@ -19,11 +19,52 @@ func List(ctx *gin.Context) {
 
 func Add(ctx *gin.Context) {
 	var game datasource.Game
-	ctx.BindJSON(&game)
+	err := ctx.BindJSON(&game)
+	if err != nil {
+		ctx.JSON(400, gin.H{
+			"code": 400,
+			"msg":  "参数错误",
+		})
+		return
+	}
 	datasource.DB.Create(&game)
 
 	ctx.JSON(200, gin.H{
 		"code": 0,
 		"msg":  "ok",
 	})
+}
+
+func Delete(ctx *gin.Context) {
+	var game datasource.Game
+	err := ctx.BindJSON(&game)
+	if err != nil {
+		ctx.JSON(400, gin.H{
+			"code": 400,
+			"msg":  "参数错误",
+		})
+		return
+	}
+	datasource.DB.Delete(&game)
+
+	ctx.JSON(200, gin.H{
+		"code": 0,
+		"msg":  "ok",
+	})
+}
+
+func Update(ctx *gin.Context) {
+	var data struct {
+		srcGame datasource.Game
+		dstGame datasource.Game
+	}
+	err := ctx.BindJSON(&data)
+	if err != nil {
+		ctx.JSON(400, gin.H{
+			"code": 400,
+			"msg":  "参数错误",
+		})
+		return
+	}
+	datasource.DB.Model(&data.srcGame).Updates(&data.dstGame)
 }
