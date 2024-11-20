@@ -1,15 +1,17 @@
 package datasource
 
 import (
-	"gorm.io/driver/mysql"
+	"os"
+
+	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
 var DB *gorm.DB
 
 func ConnectDatabase() *gorm.DB {
-	dsn := "root:123456@tcp(127.0.0.1:3306)/DuckGame?charset=utf8mb4&parseTime=True&loc=Local"
-	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	dsn := os.Getenv("DB_DSN")
+	db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if err != nil {
 		panic(err)
 	}

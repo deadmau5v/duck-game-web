@@ -5,9 +5,15 @@ import (
 )
 
 type User struct {
-	ID       uint   `gorm:"primaryKey;autoIncrement"`
-	Name     string `json:"name"`
+	ID         uint      `gorm:"primaryKey;autoIncrement"`
+	CreateTime time.Time `gorm:"autoCreateTime"`
+	UpdateTime time.Time `gorm:"autoUpdateTime"`
+
+	Email    string `json:"email"`
 	Password string `json:"password"`
+	Nickname string `json:"nickname"`
+	Avatar   string `json:"avatar"`
+	Level    int    `json:"level"`
 }
 
 type Game struct {
@@ -31,6 +37,9 @@ type Comment struct {
 	Game   Game `gorm:"constraint:OnUpdate:CASCADE,OnDelete:SET NULL;"`
 	UserID uint // Foreign key for User
 	User   User `gorm:"constraint:OnUpdate:CASCADE,OnDelete:SET NULL;"`
+
+	CreateTime time.Time `gorm:"autoCreateTime"`
+	UpdateTime time.Time `gorm:"autoUpdateTime"`
 
 	Content string `json:"content"`
 }
